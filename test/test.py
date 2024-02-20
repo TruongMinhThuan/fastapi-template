@@ -14,8 +14,8 @@ def test_read_main():
 def test_read_user():
     response = client.get('/user')
     assert response.status_code == 200
-    assert len(response.json()) != 0
-
+    assert response.json()[0]['name'] == 'User 1'
+    
 
 def test_read_question():
     response = client.get('/question/1')
