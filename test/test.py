@@ -8,7 +8,7 @@ client = TestClient(app)
 def test_read_main():
     response = client.get('/')
     assert response.status_code == 200
-    assert response.json() == {'message': 'Fast API in Python 4 for failed'}
+    assert response.json() == {'message': 'Fast API in Python 5 for failed'}
 
 
 def test_read_user():
