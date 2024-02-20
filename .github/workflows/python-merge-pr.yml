@@ -34,9 +34,12 @@ jobs:
           pip install -r requirements.txt
   
   test:
-    name: Python ${{ matrix.python-version }} Test
     needs: [build]
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9]
+    name: Python ${{ matrix.python-version }} Test
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
