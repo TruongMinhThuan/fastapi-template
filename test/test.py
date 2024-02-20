@@ -15,7 +15,7 @@ def test_read_user():
     response = client.get('/user')
     assert response.status_code == 200
     assert response.json()[0]['name'] == 'User 1'
-    
+
 
 def test_read_question():
     response = client.get('/question/1')
@@ -36,8 +36,15 @@ def test_read_alternatives():
 
 
 def test_create_answer():
-    body = {"user_id": 1, "answers": [{"question_id": 1, "alternative_id": 2}, {
-        "question_id": 2, "alternative_id": 2}, {"question_id": 2, "alternative_id": 2}]}
+    body = {
+        "user_id": 1,
+        "answers": [
+            {"question_id": 1, "alternative_id": 2},
+            {"question_id": 2, "alternative_id": 2},
+            {"question_id": 2, "alternative_id": 2}
+        ]
+    }
+
     body = json.dumps(body)
     response = client.post('/answer', data=body)
     assert response.status_code == 201
