@@ -48,6 +48,7 @@ jobs:
       - name: Run tests
         run: |
           pip install pytest
+          pip install starlette
           pytest test/test.py
       - name: Lint with flake8
         run: |
